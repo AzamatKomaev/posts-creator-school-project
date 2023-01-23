@@ -1,14 +1,11 @@
-import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI  # импортируем сторонние модули
+
+app = FastAPI()  # создаем объект app
 
 
-app = FastAPI()
-
-
-@app.get('/')
+# создаем функцию, которая будет выводить "I am working"
+# каждый раз, когда пользователь будет переходить по адресу
+# http://{домен}/
+@app.get("/")
 def test_route():
-    return 'It works'
-
-
-if __name__ == '__main__':
-    uvicorn.run('main:app', host="127.0.0.1", port=8000, log_level="info", reload=True)
+    return "I am working!"
